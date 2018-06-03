@@ -1,0 +1,36 @@
+body{
+    background-color: #a5d6a7;
+}
+ul{
+    list-style: none;
+}
+#card{
+    display: none;
+}
+
+#inscrit{
+    display: none;
+}
+.carousel{
+    background-color: #64FFDA;
+}
+#carousel {
+    position: relative;
+    width: 100%;
+
+}
+
+#carousel img {
+    position: relative;
+    display: none;
+    width: 80%;
+    height: 40%;
+    padding: 15px;
+    margin: 0 6em 2em;
+    border: 1px solid #ddd;
+}
+
+#carousel .premiere {
+    display: block;
+}
+
