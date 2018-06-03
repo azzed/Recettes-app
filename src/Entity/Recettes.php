@@ -16,10 +16,19 @@ class Recettes
     protected $ingredients;
     protected $liens;
     protected $description;
+    protected $user;
+
+
+    public function getUserId()
+    {
+        return $this->user;
+    }
+
 
     public function __construct($data)
     {
         $this->hydrate($data);
+        $this->user = $data['userId'];
 
     }
 

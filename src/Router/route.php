@@ -92,7 +92,15 @@ $routes = [
             'action' => 'recipeUpdated',
             'method' => 'post',
 
-        ]
+        ],
+    'admi_dashboard' =>
+        [
+            'url' => 'admin/dashboard',
+            'controller' => '\App\Controller\AdminController',
+            'action' => 'dashboard'
+        ],
+
+
 
 ];
 return $routes;

@@ -19,13 +19,14 @@ class AdminManager
     }
 
     //Inscription
-    public function newUser($pseudo, $mail, $password)
+    public function newUser($pseudo, $mail, $password,$role = "user")
     {
         $pass = sha1($password);
-        $req = $this->connexion->connect()->prepare('INSERT INTO users(pseudo,mail,password) VALUES(:pseudo,:mail, :pass)');
+        $req = $this->connexion->connect()->prepare('INSERT INTO users(pseudo,mail,password, role) VALUES(:pseudo,:mail, :pass , :role)');
         $req->bindValue(':pseudo', $pseudo);
         $req->bindValue(':mail', $mail);
         $req->bindValue(':pass', $pass);
+        $req->bindValue(':role', $role);
         $req->execute();
         return true;
     }

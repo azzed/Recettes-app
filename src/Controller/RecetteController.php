@@ -8,18 +8,28 @@
 
 namespace App\Controller;
 
+use App\Manager\AdminManager;
 use App\Manager\RecetteManager;
+use App\Security\Voters;
 
 class RecetteController extends AbstractController
 {
     protected $manager;
+    protected  $voters;
+    protected $adminManager;
 
     public function __construct()
     {
         session_start();
+
         parent::__construct();
         $this->manager = new RecetteManager();
+        $this->voters = new Voters();
+        $this->adminManager = new AdminManager();
+
+
     }
+
 
     public function show($id)
     {
@@ -37,14 +47,28 @@ class RecetteController extends AbstractController
     //suppression de recette
     public function removeRecipe($ids)
     {
-            $recette = $this->manager->deleteRecipe($ids);
-            $this->redirect('?dashboard');
+        if(isset($_SESSION['user'])){
+            $recette = $this->manager->findOne($ids);
+            $user = $this->adminManager->findUserById($_SESSION['user']);
+            if( $this->voters->isOwner($user,$recette)){
+                $this->manager->deleteRecipe($ids);
+                $this->redirect('?dashboard');
+            }
+        }
+
     }
     //modification d'article
     public function updateRecipe($id)
     {
-        $recette =$this->manager->findOne($id);
-        $this->render('update_recipe.html.twig', array('recette' =>$recette));
+        if(isset($_SESSION['user'])){
+            $recette = $this->manager->findOne($ids);
+            $user = $this->adminManager->findUserById($_SESSION['user']);
+            if( $this->voters->isOwner($user,$recette)){
+                $recette =$this->manager->findOne($id);
+                $this->render('update_recipe.html.twig', array('recette' =>$recette));
+
+            }
+        }
     }
 
     public function recipeUpdated($nom, $ingredients, $liens, $description,$id)
