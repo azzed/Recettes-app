@@ -13,8 +13,8 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="http://localhost/Recipe/public/css/style.css" rel="stylesheet">
-    <link href=http://localhost/Recipe/public/css/style.min.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.min.css" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
@@ -51,9 +51,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect" href="?register">Inscription</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="?connexion">Connexion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect" href="?dashboard">Administration</a>
@@ -110,7 +107,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="text" name="mail" class="form-control" id="email"
+                        <input type="email" name="mail" class="form-control" id="email"
                                placeholder="you@example.com" required autofocus>
                     </div>
                 </div>
@@ -137,22 +134,22 @@
                 </div>
             </div>
             <div class="col-md-3">
-<!--
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <i class="fa fa-close"> Example Error Message</i>
-                        </span>
-                </div>
--->
+
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button type="submit" class="btn btn-success" id="Enregistrer"><i class="fa fa-user-plus"></i> Enregistrer</button>
+                <button type="submit" class="btn btn-success"  id="Enregistrer"><i class="fa fa-user-plus"></i> Enregistrer</button>
+                <div class="alert alert-success inscrit" id="success-alert">
+                    <button type="button" class="close"  data-dismiss="alert">x</button>
+                    <strong> {{ message }} </strong>
+
+                </div>
             </div>
         </div>
+
 
     </form>
 </div>
@@ -170,7 +167,7 @@
          // Animations initialization
          new WOW().init();
      </script>
-     <script src="http://localhost/Recipe/public/js/script.js"></script>
+     <script src="../Recette-app/public/script/script.js"></script>
 </body>
 
 </html>

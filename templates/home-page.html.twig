@@ -13,8 +13,8 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="http://localhost/Recipe/public/css/style.css" rel="stylesheet">
-    <link href="http://localhost/Recipe/public/css/style.min.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.min.css" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
@@ -53,9 +53,7 @@
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="?register">Inscription</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="?connexion">Connexion</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="?dashboard">Administration</a>
                 </li>
@@ -111,7 +109,7 @@
 
                             <div class="card ">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="{{ recette.videoLink }}" allowfullscreen></iframe>
+                                    <iframe class="embed-responsive-item" src="{{ recette.videoLink() }}" allowfullscreen></iframe>
                                 </div>
                                 <div class="card-body">
 
@@ -193,8 +191,9 @@
         // Animations initialization
         new WOW().init();
     </script>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 
-    <script src="http://localhost/Recette-app/public/script/script.js"></script>
+    <script src="../Recette-app/public/script/script.js"></script>
 </body>
 
 </html>

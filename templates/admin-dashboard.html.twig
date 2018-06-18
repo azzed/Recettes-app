@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" arel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="http://localhost/Recipe/public/css/style.css" rel="stylesheet">
-    <link href=http://localhost/Recipe/public/css/style.min.css" rel="stylesheet">
+    <link href="http://localhost/Recette-app/public/css/style.css" rel="stylesheet">
+    <link href="{{ include (APP_ROOT.'style.min.css') }}" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
@@ -28,6 +28,7 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
         <div class="container">
+
             <!-- Brand -->
             <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"
                target="_blank">
@@ -79,6 +80,8 @@
                href="#list-home" role="tab" aria-controls="home">Recettes</a>
             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
                href="#list-profile" role="tab" aria-controls="profile">Ajouter une recette</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+               href="#user" role="tab" aria-controls="profile">modifier profil</a>
         </div>
     </div>
     <div class="col-8">
@@ -129,8 +132,25 @@
                         <tr>
                             <td>{{ recette.getNom() }}</td>
                             <td>
-                                <a href="{{ recette.linkDelete }}" class="btn btn-sm btn-danger ">Supprimer</a>
+                                <button type="button" class="btn  btn-sm btn-danger" data-toggle="modal" data-target="#supprimer">Supprimer</button>
                                 <a href="{{ recette.linkUpdate }}" class="btn btn-sm btn-primary">Modifier</a>
+                                <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="supprimer">etes vous sur de supprimer cette recette ?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+                                                <a href="{{ recette.linkDelete }}" class="btn btn-sm btn-danger ">Valide</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </td>
 
                         </tr>
@@ -140,6 +160,39 @@
                 </table>
                 <br>
 
+                <div class="alert alert-success" id="message" role="alert" style="display: none">
+                    <a href="#" class="alert-link">une recette a été modifier</a>.
+                </div>
+
+            </div>
+            <div class="tab-pane fade show" id="user" role="tabpanel">
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">utilisateur</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>{{ user.getPseudo }}</td>
+                        <td>
+                            <a href="{{ user.linkUpdated }}" class="btn btn-sm btn-primary">Modifier</a>
+                            <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
         </div>
@@ -157,7 +210,7 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/js/mdb.min.js"></script>
+<script type="text/javascript" src="{{ include APP_ROOT.'mdb.min.js' }}"></script>
 <!-- Initializations -->
 <script type="text/javascript">
     // Animations initialization
@@ -165,7 +218,7 @@
 </script>
 
 
-<script src="http://localhost/Recipe/public/js/script.js"></script>
+<script src="/Recette-app/public/script/script.js"></script>
 </body>
 
 </html>

@@ -13,8 +13,8 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="http://localhost/Recipe/public/css/style.css" rel="stylesheet">
-    <link href=http://localhost/Recipe/public/css/style.min.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.css" rel="stylesheet">
+    <link href="../Recette-app/public/css/style.min.css" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
@@ -52,9 +52,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect" href="?register">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect" href="?connexion">Connexion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect" href="?dashboard">Administration</a>
@@ -107,11 +104,10 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ recette.getNom }}</h5>
+                                <p>Ingrédients : </p>
                                 <p class="border-primary">{{ recette.getIngredients }}</p>
 
                             </div>
-
-
                 </div>
 
                 <!--Grid column-->
@@ -119,8 +115,6 @@
             </div>
 
             <!--Grid row-->
-
-
 
         </section>
 
