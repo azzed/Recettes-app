@@ -1,51 +1,31 @@
-# Projet-recette
-                                            
-                    
-                 
-                 
-### Présentation :
+# Recettes
 
-Ce projet personnel a été conçu pour la validation de la formation développeur web junior.
-Il représente un blog de partage de recette de cuisine.
-
-
-### Fonctionnement :
-
-
-Dans ce blog toutes personnes  pourras visualiser les recettes qui ont été creer.
-Pour ajouter une recette il faut s'inscrire, une fois inscrite la personne pourra ajouter ses recettes, les modifier ou les supprime ainsi que modifiée son pseudo et son mail
-Pour des raisons de sécurité un espace admin est créé en cas d'ajout de mauvais contenus.
-Toutes toutes personnes souhaitent recupere les données de chaque recette afin de de l'utiliser sur son site j'ai créé une URL pour la récupération de c'est donnée en format json.
-
-
-### Installation :
-#### Prérequis : 
-
-* PHP 7
-* MYSQL
-* MAMP ,XAMPP ou WAMP selon votre OS
-
-#### Installation
-
-Télécharger le projet dans le dossier :
-     
-   * var/www pour ubuntu
-   * wampserver/www  pour windows
-
-En ligne de commande  dans le dossier du projet entrer cette commande afin  de telecharger les autoloader ainsi que twig:
-        
-        $ php composer.phar update
+ ### Open source platform to manage and share recipes 
+ 
+ ## Prerequiste 
+ 
+ [PHP 7.1](http://php.net/downloads.php) 
+ 
+ [MySQL](https://dev.mysql.com/downloads/) 
+ 
+ ## Installation 
+ 
+ Download project or `git clone https://github.com/azzed/Recettes-app.git your_project_name` 
+ 
+ cd `path/to/project` 
+ 
+ `composer install`
 
         
-Pour la base de donnee :
+For the database:
     
-   * importer le fichier bdd-projec5.sql dans la base de donnee
+   * import the file bdd-projec5.sql into the database
 
-   * Ouvrir le fichier config.php modifier vos parametre :
+   * Open config.php file and change your settings:
         
-        *  'dsn' =>  'votre port utiliser'
-        *  'user' => 'votre identifiant'
-        *  'pwd' => 'votre mot de passe'
+       * dsn =>'your port use' 
+       * 'user' =>'your username' 
+       * 'pwd' =>'your password' 
 
 
 
