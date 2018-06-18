@@ -32,9 +32,10 @@ Télécharger le projet dans le dossier :
    * var/www pour ubuntu
    * wampserver/www  pour windows
 
-En ligne de commande  dans le dossier du projet entrer cette commande :
+En ligne de commande  dans le dossier du projet entrer cette commande afin  de telecharger les autoloader ainsi que twig:
         
         $ php composer.phar update
+
         
 Pour la base de donnee :
     
