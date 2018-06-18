@@ -11,7 +11,7 @@ Il représente un blog de partage de recette de cuisine.
 
 `Fonctionnement` :
 
-Dans ce blog toutes personne ne pourras visualiser les recettes qui ont été creer.
+Dans ce blog toutes personnes  pourras visualiser les recettes qui ont été creer.
 Pour ajouter une recette il faut s'inscrire, une fois inscrite la personne pourra ajouter ses recettes, les modifier ou les supprime et modifiaient son pseudo et son mail
 Pour des raisons de sécurité un espace admin est créé en cas d'ajout de mauvais contenus.
 Toutes toutes personnes souhaitent recupere les données de chaque recette afin de de l'utiliser sur son site j'ai créé une URL pour la récupération de c'est donnée en format json.
