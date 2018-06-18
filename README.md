@@ -1,5 +1,5 @@
 # Projet-recette
-                                              **blog de recettes de cuisines**
+                                            
                     
                  
                  
@@ -10,6 +10,7 @@ Il représente un blog de partage de recette de cuisine.
 
 
 ### Fonctionnement :
+
 
 Dans ce blog toutes personnes  pourras visualiser les recettes qui ont été creer.
 Pour ajouter une recette il faut s'inscrire, une fois inscrite la personne pourra ajouter ses recettes, les modifier ou les supprime ainsi que modifiée son pseudo et son mail
