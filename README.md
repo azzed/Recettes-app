@@ -18,12 +18,14 @@
 
         
 For the database:
+   
+   * creates a database called projet5
     
-   * import the file bdd-projec5.sql into the database
+   * import the file `bdd-projet5.sql` into the database
 
-   * Open config.php file and change your settings:
+   * Open `config.php` file and change your settings:
         
-       * dsn =>'your port use' 
+       * 'dsn' =>'your port use' 
        * 'user' =>'your username' 
        * 'pwd' =>'your password' 
 
