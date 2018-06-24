@@ -8,12 +8,11 @@
 
 namespace App\Security;
 
-
 class Voters
 {
     public function isOwner($user, $subject)
     {
-        if($this->isAdmin($user)){
+        if ($this->isAdmin($user)) {
             return true;
         }
         return $user->getId() == $subject->getUserId();
@@ -22,5 +21,14 @@ class Voters
     public function isAdmin($user)
     {
         return 'admin' == $user->getRole();
+    }
+
+
+    public function canEditProfil($user, $id)
+    {
+        if ($this->isAdmin($user)) {
+            return true;
+        }
+        return $user->getId() == $id;
     }
 }

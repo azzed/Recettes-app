@@ -31,13 +31,10 @@ class ConnexionController extends AbstractController
         $error = 'mot de passe ou identifiant incorrect';
 
         if (isset($name) && isset($password) && !empty($name) && !empty($password)) {
-
             $user = $this->manager->findUser($name, $password);
             if ($user) {
                 $_SESSION['user'] = $user->getId();
-
                 $this->redirect('?dashboard');
-
             }
             $this->render('connexion.html.twig', array('error' => $error));
             return false;
@@ -49,6 +46,4 @@ class ConnexionController extends AbstractController
         unset($_SESSION['user']);
         $this->render('connexion.html.twig');
     }
-
-
 }

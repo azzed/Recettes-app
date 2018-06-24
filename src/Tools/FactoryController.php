@@ -7,11 +7,11 @@
  */
 
 namespace App\Tools;
+
 class FactoryController
 {
     public function resolveController($controller, $action, array $params = null)
     {
-
         $params = !isset($params) ? [] : $params;
         //verification si la class existe
         if (!class_exists($controller)) {
@@ -24,8 +24,13 @@ class FactoryController
         $method = new \ReflectionMethod($controller, $action);
         $expectedParams = $method->getNumberOfParameters();
         if (\count($params) !== $expectedParams) {
-            throw new \InvalidArgumentException(sprintf("Class %s , Method %s expected %s arguments, %s given",
-                $controller, $action, $expectedParams, count($params)));
+            throw new \InvalidArgumentException(sprintf(
+                "Class %s , Method %s expected %s arguments, %s given",
+                $controller,
+                $action,
+                $expectedParams,
+                count($params)
+            ));
         }
 
         $controller = new $controller();

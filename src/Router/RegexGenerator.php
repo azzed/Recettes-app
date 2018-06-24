@@ -7,12 +7,14 @@
  */
 
 namespace App\Router;
+
 class RegexGenerator
 {
     public function getRegex($pattern)
     {
-        if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern))
-            return false; // Invalid pattern
+        if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern)) {
+            return false;
+        } // Invalid pattern
         // Turn "(/)" into "/?"
         $pattern = preg_replace('#\(/\)#', '/?', $pattern);
         // Create capture group for ":parameter"

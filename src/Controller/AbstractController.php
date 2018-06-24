@@ -21,6 +21,7 @@ abstract class AbstractController
 
     public function render($view, $params = array())
     {
+        $params['public_dir'] = PUBLIC_DIR;
         echo $this->twig->render($view, $params);
     }
 

@@ -22,17 +22,15 @@ class RegisterController extends AbstractController
 
     public function subscriber($name, $mail, $password)
     {
-        if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail) ) {
-            if(!$this->manager->userAlreadyExist($mail)){
+        if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail)) {
+            if (!$this->manager->userAlreadyExist($mail)) {
                 $this->manager->newUser($name, $mail, $password);
-
             }
         }
         $this->register();
     }
     public function register()
     {
-
         $this->render('inscription.html.twig');
     }
 }

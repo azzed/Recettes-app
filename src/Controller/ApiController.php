@@ -10,18 +10,27 @@ namespace App\Controller;
 
 use App\Manager\RecetteManager;
 
-class ApiController extends AbstractController
+class ApiController
 {
     protected $manager;
+
     public function __construct()
     {
-        parent::__construct();
         $this->manager = new RecetteManager();
     }
 
-    public function showRecipe($id)
+    public function all()
     {
-        $recette = $this->manager->findOne($id);
-        json_encode($recette);
+        $recette = $this->manager->findAllAPI();
+        header('Content-Type: application/json');
+        echo json_encode($recette);
+        exit;
+    }
+    public function detail($id)
+    {
+        $recette = $this->manager->findOneAPI($id);
+        header('Content-Type: application/json');
+        echo json_encode($recette);
+        exit;
     }
 }

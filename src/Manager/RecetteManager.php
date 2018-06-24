@@ -7,9 +7,7 @@
  */
 namespace App\Manager;
 
-
 use App\Entity\Recettes;
-
 
 class RecetteManager
 {
@@ -29,17 +27,29 @@ class RecetteManager
         }
         return $recettes;
     }
+    public function findAllAPI()
+    {
+        $req = $this->connexion->connect()->prepare('SELECT * FROM recipe ');
+        $req->execute();
 
+        return $req->fetchAll();
+    }
+
+    public function findOneAPI($id)
+    {
+        $req = $this->connexion->connect()->prepare('SELECT * FROM recipe WHERE id = '.$id);
+        $req->execute();
+        return $req->fetch();
+    }
     public function findOne($id)
     {
-
         $req = $this->connexion->connect()->prepare('SELECT * FROM recipe WHERE id = '.$id);
         $req->execute();
         $datas = $req->fetch();
         $recette = new Recettes($datas);
         return $recette;
     }
-    public function addRecipe($nom, $ingredients,$liens,$description, $user_id)
+    public function addRecipe($nom, $ingredients, $liens, $description, $user_id)
     {
         $req = $this->connexion->connect()->prepare('INSERT INTO recipe( nom,ingredients, liens, description, userId) VALUES( :nom,:ingredients, :liens, :description,  :user_id) ');
         $req->bindValue(':nom', $nom);
@@ -69,7 +79,7 @@ class RecetteManager
         $req = $this->connexion->connect()->prepare($sql);
         $req->execute();
     }
-    public function updateRecipe($nom, $ingredients,$liens,$description,$id)
+    public function updateRecipe($nom, $ingredients, $liens, $description, $id)
     {
         $req = $this->connexion->connect()->prepare('UPDATE recipe SET nom =:nom, ingredients=:ingredients,liens=:liens,description=:description  WHERE id =:id ');
         $req->bindValue(':nom', $nom);

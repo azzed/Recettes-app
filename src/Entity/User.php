@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use App\Router\URL;
 
 class User
 {
@@ -11,17 +12,8 @@ class User
     protected $pseudo;
     protected $id;
     protected $role;
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
     protected $password;
     protected $mail;
-
     public function __construct($donnees)
     {
         $this->hydrate($donnees);
@@ -33,6 +25,14 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 
@@ -99,5 +99,12 @@ class User
     {
         $this->role = $role;
     }
-
+    public function linkUpdated()
+    {
+        return URL::UPDATE_USER.$this->getId();
+    }
+    public function linkDelete()
+    {
+        return URL::DELETE_USER.$this->getId();
+    }
 }

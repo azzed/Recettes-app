@@ -19,12 +19,10 @@ class Router
 
     public function run()
     {
-
         $callback = $this->routerMatch();
 
         $controllerResolver = new FactoryController();
         $controllerResolver->resolveController($callback['controller'], $callback['action'], $callback['params']);
-
     }
 
     public function getRegExep($path)
@@ -62,6 +60,4 @@ class Router
 
         throw new \Exception(sprintf("No route match %s", $url));
     }
-
-
 }

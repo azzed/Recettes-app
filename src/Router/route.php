@@ -93,13 +93,49 @@ $routes = [
             'method' => 'post',
 
         ],
-    'admi_dashboard' =>
+    'updated' =>
+        [
+            'url' => 'updated/{id}',
+            'controller' => '\App\Controller\UserController',
+            'action' => 'updateProfil',
+            'params' => 'id',
+        ],
+    'updateProfil' =>
+        [
+            'url' => 'updateProfil',
+            'controller' => '\App\Controller\UserController',
+            'action' => 'profilUpdated',
+            'method' => 'post',
+
+        ],
+    'deleteProfil' =>
+        [
+            'url' => 'deleteProfil/{id}',
+            'controller' => '\App\Controller\UserController',
+            'action' => 'removeProfil',
+            'params' => 'id'
+        ],
+
+    'admin_dashboard' =>
         [
             'url' => 'admin/dashboard',
             'controller' => '\App\Controller\AdminController',
             'action' => 'dashboard'
         ],
 
+    'api_recette_all' =>
+        [
+            'url' => 'api/recette',
+            'controller' => '\App\Controller\ApiController',
+            'action' => 'all',
+        ],
+    'api_recette_detail' =>
+        [
+            'url' => 'api/recette/{id}',
+            'controller' => '\App\Controller\ApiController',
+            'action' => 'detail',
+            'params' => 'id',
+        ],
 
 
 ];

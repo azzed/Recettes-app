@@ -17,8 +17,7 @@ class Connexion
     {
         $credientials = $this->getCredentials();
 
-        return new PDO($credientials['dsn'],$credientials['user'], $credientials['pwd']);
-
+        return new PDO($credientials['dsn'], $credientials['user'], $credientials['pwd']);
     }
 
     public function getCredentials()

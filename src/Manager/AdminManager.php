@@ -17,9 +17,28 @@ class AdminManager
     {
         $this->connexion = new Connexion();
     }
+    public function findAll()
+    {
+        $users = [];
+        $req = $this->connexion->connect()->prepare('SELECT * FROM users ');
+        $req->execute();
+        $datas = $req->fetchAll();
+        foreach ($datas as $data) {
+            $users[] = new User($data);
+        }
+        return $users;
+    }
 
+    public function userAlreadyExist($mail)
+    {
+        $req = $this->connexion->connect()->prepare("SELECT COUNT(mail)  FROM users WHERE mail = :mail");
+        $req->bindValue(':mail', $mail);
+        $req->execute();
+        $result = $req->fetchColumn();
+        return $result > 0 ? true : false;
+    }
     //Inscription
-    public function newUser($pseudo, $mail, $password,$role = "user")
+    public function newUser($pseudo, $mail, $password, $role = "user")
     {
         $pass = sha1($password);
         $req = $this->connexion->connect()->prepare('INSERT INTO users(pseudo,mail,password, role) VALUES(:pseudo,:mail, :pass , :role)');
@@ -47,7 +66,6 @@ class AdminManager
 
     public function findUserById($id)
     {
-
         $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE id = :id');
         $req->execute(array(':id' => $id));
         $donnees = $req->fetch();
@@ -55,5 +73,21 @@ class AdminManager
             return new User($donnees);
         }
         return $donnees;
+    }
+    public function updateProfil($nom, $mail, $id)
+    {
+        $req = $this->connexion->connect()->prepare('UPDATE users SET pseudo =:nom, mail=:mail WHERE id =:id ');
+        $req->bindValue(':nom', $nom);
+        $req->bindValue(':mail', $mail);
+        $req->bindValue(':id', $id);
+        $req->execute();
+        $user = new User(['nom' => $nom, 'mail' => $mail,'id'=>$id]);
+        return $user;
+    }
+    public function deleteProfil($ids)
+    {
+        $sql = "DELETE FROM users WHERE id =".$ids;
+        $req = $this->connexion->connect()->prepare($sql);
+        $req->execute();
     }
 }

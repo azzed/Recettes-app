@@ -7,6 +7,8 @@
  */
 namespace App\Entity;
 
+use App\Router\URL;
+
 class Recettes
 {
     use HydratorTrait;
@@ -15,9 +17,8 @@ class Recettes
     protected $nom;
     protected $ingredients;
     protected $liens;
-    protected $description;
     protected $user;
-
+    protected $description;
 
     public function getUserId()
     {
@@ -29,12 +30,11 @@ class Recettes
     {
         $this->hydrate($data);
         $this->user = $data['userId'];
-
     }
 
     public function videoLink()
     {
-        return str_replace('watch?v=','embed/',$this->getLiens());
+        return str_replace('watch?v=', 'embed/', $this->getLiens());
     }
     /**
      * @return mixed
@@ -133,17 +133,16 @@ class Recettes
     }
 
 
-
     public function link()
     {
-        return '/Recette-app/?recette/'.$this->getId();
+        return URL::RECETTE.$this->getId();
     }
     public function linkDelete()
     {
-        return '/Recette-app/?delete/'.$this->getId();
+        return URL::DELETE_RECIPE.$this->getId();
     }
     public function linkUpdate()
     {
-        return '/Recette-app/?update/'.$this->getId();
+        return URL::UPDATE_RECIPE .$this->getId();
     }
 }

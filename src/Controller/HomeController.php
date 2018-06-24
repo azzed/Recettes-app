@@ -22,11 +22,8 @@ class HomeController extends AbstractController
 
     public function home()
     {
-
         $recettes = $this->manager->findAll();
 
         $this->render('home-page.html.twig', array('recettes' => $recettes, 'title'=> self::TITLE));
-
     }
-
 }
