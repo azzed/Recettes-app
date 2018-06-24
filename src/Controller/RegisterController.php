@@ -20,25 +20,19 @@ class RegisterController extends AbstractController
         $this->manager = new AdminManager();
     }
 
-    public function subscriber($name = null,$mail = null, $password = null)
+    public function subscriber($name, $mail, $password)
     {
+        if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail) ) {
+            if(!$this->manager->userAlreadyExist($mail)){
+                $this->manager->newUser($name, $mail, $password);
 
-        $this->register();
-        if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail)) {
-            $register = $this->manager->newUser($name, $mail, $password);
-            if($register) {
-                $user = $this->manager->findUser($name, $password);
-
-                $_SESSION['user'] = $user->getId();
             }
-
         }
-
+        $this->register();
     }
-
     public function register()
     {
+
         $this->render('inscription.html.twig');
     }
-
 }
