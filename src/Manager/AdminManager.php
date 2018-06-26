@@ -46,15 +46,13 @@ class AdminManager
         $req->bindValue(':mail', $mail);
         $req->bindValue(':pass', $pass);
         $req->bindValue(':role', $role);
-        $req->execute();
-        return true;
+        return $req->execute();
     }
 
     //Connexion
     public function findUser($pseudo, $password)
     {
         $encrypte = sha1($password);
-
         $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE pseudo = :pseudo AND password = :password');
         $req->execute(array(':pseudo' => $pseudo,':password' => $encrypte));
         $donnees = $req->fetch();
@@ -68,6 +66,16 @@ class AdminManager
     {
         $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE id = :id');
         $req->execute(array(':id' => $id));
+        $donnees = $req->fetch();
+        if (\is_array($donnees)) {
+            return new User($donnees);
+        }
+        return $donnees;
+    }
+    public function findUserByMail($mail)
+    {
+        $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE mail = :mail');
+        $req->execute(array(':mail' => $mail));
         $donnees = $req->fetch();
         if (\is_array($donnees)) {
             return new User($donnees);

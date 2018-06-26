@@ -24,7 +24,12 @@ class RegisterController extends AbstractController
     {
         if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail)) {
             if (!$this->manager->userAlreadyExist($mail)) {
-                $this->manager->newUser($name, $mail, $password);
+                $userCreated = $this->manager->newUser($name, $mail, $password);
+                if($userCreated){
+                    $_SESSION['success_register'] = "user enregister";
+                    $_SESSION['user'] = $this->manager->findUserByMail($mail)->getId();
+                    return $this->redirect('?dashboard');
+                }
             }
         }
         $this->register();

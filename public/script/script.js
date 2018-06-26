@@ -1,1 +1,0 @@
-$("#Enregistrer").on("click",setInterval(function(){ $(".inscrit").css("display","block")},1000));

@@ -32,8 +32,6 @@ class UserController extends AbstractController
             return $this->redirect("?connexion");
         }
         /**@var User**/
-
-
         $user = $this->adminManager->findUserById($_SESSION['user']);
         $recettes = ('admin' === $user->getRole())? $this->recetteManager->findAll() : $this->recetteManager->findAllByUser($_SESSION['user']);
         $users = ('admin' === $user->getRole())? $this->adminManager->findAll(): $this->adminManager->findUserById($_SESSION['user']);

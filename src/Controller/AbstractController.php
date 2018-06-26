@@ -14,9 +14,16 @@ abstract class AbstractController
 
     public function __construct()
     {
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
         $loader = new \Twig_Loader_Filesystem(APP_ROOT . '/templates');
         $this->twig = new \Twig_Environment($loader, ['debug' => true]);
         $this->twig->addExtension(new \Twig_Extension_Debug());
+        $session = count($_SESSION)> 0 ? $_SESSION : [];
+        $this->twig->addGlobal('session',$session);
+
     }
 
     public function render($view, $params = array())

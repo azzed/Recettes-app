@@ -29,7 +29,9 @@ class Recettes
     public function __construct($data)
     {
         $this->hydrate($data);
-        $this->user = $data['userId'];
+        if(isset($data['userId'])){
+            $this->user = $data['userId'];
+        }
     }
 
     public function videoLink()
