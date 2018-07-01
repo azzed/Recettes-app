@@ -48,25 +48,29 @@ class AdminManager
         $req->bindValue(':role', $role);
         return $req->execute();
     }
-
-    //Connexion
-    public function findUser($pseudo, $password)
+    public function checkUser($pseudo,$password)
     {
-            $passwordFromDatabase = $this->connexion->connect()->prepare('SELECT * FROM `users` WHERE password = '.$password);
-            var_dump($passwordFromDatabase);
-            die();
-            if(password_verify($password,$passwordFromDatabase)){
-                $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE pseudo = :pseudo AND password = :password');
-                $req->execute(array(':pseudo' => $pseudo,':password' => $password));
-                $donnees = $req->fetch();
-                if (\is_array($donnees)) {
-                    return new User($donnees);
-                }
-
-                return $donnees;
-            }
-
+        $req = $passwordFromDatabase = $this->connexion->connect()->prepare('SELECT password FROM `users` WHERE pseudo = :pseudo ');
+        $req->bindValue(':pseudo', $pseudo);
+        if($req->execute()){
+            $passwordFromDatabase = $req->fetchColumn();
+            return password_verify($password,$passwordFromDatabase);
+        }
     }
+    //Connexion
+    public function findUser($pseudo)
+    {
+
+
+        $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE pseudo = :pseudo ');
+        $req->execute(array(':pseudo' => $pseudo));
+        $donnees = $req->fetch();
+        if (\is_array($donnees)) {
+            return new User($donnees);
+        }
+        return $donnees;
+    }
+
 
     public function findUserById($id)
     {
