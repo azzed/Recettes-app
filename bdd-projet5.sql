@@ -37,12 +37,7 @@ CREATE TABLE `recipe` (
   `description` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `recipe`
---
 
-INSERT INTO `recipe` (`id`, `userId`, `nom`, `ingredients`, `liens`, `description`) VALUES
-(14, 85, 'Tajine de poulet et citron confit', '- 4 Cuisses de poulet - 100 Gr d\'olives vertes - 2 Gousses d\'ails - 1 Oignon - 1 càc de gingembre - 1 càc cumin - 1 càc Raz el hanout - 1 càc de curcuma - 1 dose de safran (colorant alimentaire) - Sel et poivre - ½ botte de coriandre - 1 citron confit avec pulpe - 10 cl d\'huile d\'olive - Eau', 'https://www.youtube.com/watch?v=7ugUFYzG1HA', 'Un délicieux tajine marocain au poulet et citron confit auquel je rajoute des olives et champignons. J\'adore la saveur qu\'apporte le citron confit.');
 
 -- --------------------------------------------------------
 
@@ -58,15 +53,6 @@ CREATE TABLE `users` (
   `role` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `pseudo`, `mail`, `password`, `role`) VALUES
-(85, 'azzedine', 'bouzelmad.azzedin@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'admin'),
-(86, 'test', 'test@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'user'),
-(87, 'karim', 'toto@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'user'),
-(88, 'toto', 'toto@mail.com', '159b0c4aee9a825be489507183f1cec03951da63', 'user');
 
 --
 -- Index pour les tables déchargées

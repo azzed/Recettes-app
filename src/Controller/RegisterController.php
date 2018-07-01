@@ -22,20 +22,29 @@ class RegisterController extends AbstractController
 
     public function subscriber($name, $mail, $password)
     {
+
         if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail)) {
-            if (!$this->manager->userAlreadyExist($mail)) {
-                $userCreated = $this->manager->newUser($name, $mail, $password);
-                if($userCreated){
-                    $_SESSION['success_register'] = "user enregister";
-                    $_SESSION['user'] = $this->manager->findUserByMail($mail)->getId();
-                    return $this->redirect('?dashboard');
+            if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $mail)) {
+                if (!$this->manager->userAlreadyExist($mail)) {
+                    $userCreated = $this->manager->newUser($name, $mail, $password);
+                    if ($userCreated) {
+                        $_SESSION['success_register'] = "user enregister";
+                        $_SESSION['user'] = $this->manager->findUserByMail($mail)->getId();
+                        return $this->redirect('?dashboard');
+                    }
                 }
+                $this->redirect("?register");
+                $existAccount ="le compte existe dejà";
+                $this->render('inscription.html.twig', array("existAccount" => $existAccount));
+
             }
+            $invalidMail = "mail invalide";
+            $this->render('inscription.html.twig', array("invalidMail" => $invalidMail));
         }
-        $this->register();
     }
     public function register()
     {
         $this->render('inscription.html.twig');
     }
+
 }

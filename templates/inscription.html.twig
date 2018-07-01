@@ -104,9 +104,16 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="email" name="mail" class="form-control" id="email"
+                        <input type="text" name="mail" class="form-control" id="email"
                                placeholder="you@example.com" required autofocus>
                     </div>
+                </div>
+            </div>
+            <div class="col-md-3" id="messageError">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            {{ invalidMail }}
+                        </span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -139,9 +146,12 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <button type="submit" class="btn btn-success"  id="Enregistrer"><i class="fa fa-user-plus"></i> Enregistrer</button>
-                <div class="alert alert-success inscrit" id="success-alert">
-                    <button type="button" class="close"  data-dismiss="alert">x</button>
-                    <strong>{{ message }}</strong>
+            </div>
+            <div class="col-md-3" id="messageError">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            {{ existAccount }}
+                        </span>
                 </div>
             </div>
         </div>

@@ -52,7 +52,9 @@ class AdminManager
     //Connexion
     public function findUser($pseudo, $password)
     {
-            $passwordFromDatabase = $this->connexion->connect()->prepare("SELECT password WHERE pseudo =".$pseudo);
+            $passwordFromDatabase = $this->connexion->connect()->prepare('SELECT * FROM `users` WHERE password = '.$password);
+            var_dump($passwordFromDatabase);
+            die();
             if(password_verify($password,$passwordFromDatabase)){
                 $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE pseudo = :pseudo AND password = :password');
                 $req->execute(array(':pseudo' => $pseudo,':password' => $password));
