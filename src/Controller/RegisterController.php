@@ -38,8 +38,6 @@ class RegisterController extends AbstractController
                 $this->render('inscription.html.twig', array("existAccount" => $existAccount));
 
             }
-            $invalidMail = "mail invalide";
-            $this->render('inscription.html.twig', array("invalidMail" => $invalidMail));
         }
     }
     public function register()

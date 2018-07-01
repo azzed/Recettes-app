@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae5df9a3-ecc0-48a3-8238-3ed01599334d" name="Default" comment="Url">
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/bdd-projet5.sql" afterPath="$PROJECT_DIR$/bdd-projet5.sql" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/AdminManager.php" afterPath="$PROJECT_DIR$/src/Manager/AdminManager.php" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" />
+      <change beforePath="$PROJECT_DIR$/templates/inscription.html.twig" afterPath="$PROJECT_DIR$/templates/inscription.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="94">
-      <file leaf-file-name="inscription.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inscription.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/inscription.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2631">
-              <caret line="152" column="43" lean-forward="false" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
+            <state relative-caret-position="431">
+              <caret line="106" column="42" lean-forward="false" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -65,8 +63,8 @@
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            <state relative-caret-position="590">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,7 +113,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConnexionController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConnexionController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ConnexionController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="594">
@@ -177,12 +175,12 @@
         <option value="$PROJECT_DIR$/templates/update-profil.html.twig" />
         <option value="$PROJECT_DIR$/templates/update_recipe.html.twig" />
         <option value="$PROJECT_DIR$/templates/connexion.html.twig" />
-        <option value="$PROJECT_DIR$/templates/inscription.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/RegisterController.php" />
         <option value="$PROJECT_DIR$/bdd-projet5.sql" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Manager/AdminManager.php" />
         <option value="$PROJECT_DIR$/src/Controller/ConnexionController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RegisterController.php" />
+        <option value="$PROJECT_DIR$/templates/inscription.html.twig" />
       </list>
     </option>
   </component>
@@ -346,7 +344,7 @@
       <workItem from="1530046141626" duration="970000" />
       <workItem from="1530203848879" duration="9815000" />
       <workItem from="1530261510518" duration="4465000" />
-      <workItem from="1530428447568" duration="2787000" />
+      <workItem from="1530428447568" duration="3471000" />
     </task>
     <task id="LOCAL-00001" summary="remove and update recipe">
       <created>1527723324379</created>
@@ -457,7 +455,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234058000" />
+    <option name="totallyTimeSpent" value="234742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -811,14 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inscription.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2631">
-          <caret line="152" column="43" lean-forward="false" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bdd-projet5.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -835,14 +825,6 @@
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,6 +853,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inscription.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="106" column="42" lean-forward="false" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
           <folding />
         </state>
       </provider>
