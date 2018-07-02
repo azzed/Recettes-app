@@ -16,9 +16,11 @@
  
  `composer install`
 
+ Rename the `config.php.dist` file by `config.php`
         
 For the database:
    
+   * creates a database called projet5
     
    * import the file `bdd-projet5.sql` into the database
 
