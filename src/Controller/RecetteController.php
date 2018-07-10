@@ -40,6 +40,7 @@ class RecetteController extends AbstractController
             $this->manager->addRecipe($nom, $ingredients, $liens, $description, $user_id);
             $this->redirect('?dashboard');
         }
+        $this->redirect('?dashboard');
     }
     //suppression de recette
     public function removeRecipe($ids)

@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae5df9a3-ecc0-48a3-8238-3ed01599334d" name="Default" comment="Url">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/templates/home-page.html.twig" afterPath="$PROJECT_DIR$/templates/home-page.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/show_recette.html.twig" afterPath="$PROJECT_DIR$/templates/show_recette.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecetteController.php" afterPath="$PROJECT_DIR$/src/Controller/RecetteController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="94">
-      <file leaf-file-name="show_recette.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show_recette.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/show_recette.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="625">
@@ -61,8 +60,18 @@
       <file leaf-file-name="dashboard.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3348">
+            <state relative-caret-position="684">
               <caret line="186" column="34" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecetteController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/RecetteController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="42" column="38" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -74,19 +83,6 @@
             <state relative-caret-position="-441">
               <caret line="80" column="72" lean-forward="false" selection-start-line="80" selection-start-column="72" selection-end-line="80" selection-end-column="72" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="324">
-                <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -140,7 +136,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/config.php.dist" />
-        <option value="$PROJECT_DIR$/src/Controller/RecetteController.php" />
         <option value="$PROJECT_DIR$/templates/update_profil.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/Security/Voters.php" />
@@ -170,6 +165,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/templates/home-page.html.twig" />
         <option value="$PROJECT_DIR$/templates/show_recette.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/RecetteController.php" />
       </list>
     </option>
   </component>
@@ -353,7 +349,7 @@
       <workItem from="1531039213402" duration="1441000" />
       <workItem from="1531059371007" duration="381000" />
       <workItem from="1531130251500" duration="3879000" />
-      <workItem from="1531228639637" duration="866000" />
+      <workItem from="1531228639637" duration="1234000" />
     </task>
     <task id="LOCAL-00001" summary="remove and update recipe">
       <created>1527723324379</created>
@@ -464,7 +460,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246450000" />
+    <option name="totallyTimeSpent" value="246818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -672,13 +668,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin-dashboard.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/RecetteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/script/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -830,14 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3348">
-          <caret line="186" column="34" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home-page.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
@@ -850,6 +831,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="79" column="68" lean-forward="false" selection-start-line="79" selection-start-column="68" selection-end-line="79" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="186" column="34" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RecetteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="38" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
           <folding />
         </state>
       </provider>
