@@ -61,6 +61,14 @@ class UserController extends AbstractController
         if (isset($nom) && !empty($nom) && isset($mail) && !empty($mail)) {
             $user = $this->adminManager->updateProfil($nom, $mail, $id);
             $this->redirect('?dashboard');
+        } else {
+            if (isset($_SESSION['user'])) {
+                $user = $this->adminManager->findUserById($_SESSION['user']);
+                if ($this->voters->canEditProfil($user, $id)) {
+                    $message = "il faut entré tout les champs";
+                    $this->render('update-profil.html.twig', array('user' =>$user,'message'=>$message));
+                }
+            }
         }
     }
     public function removeProfil($ids)

@@ -40,7 +40,7 @@ class AdminManager
     //Inscription
     public function newUser($pseudo, $mail, $password, $role = "user")
     {
-        $hash = password_hash($password,PASSWORD_DEFAULT);
+        $hash = password_hash($password, PASSWORD_DEFAULT);
         $req = $this->connexion->connect()->prepare('INSERT INTO users(pseudo,mail,password, role) VALUES(:pseudo,:mail, :pass , :role)');
         $req->bindValue(':pseudo', $pseudo);
         $req->bindValue(':mail', $mail);
@@ -48,20 +48,18 @@ class AdminManager
         $req->bindValue(':role', $role);
         return $req->execute();
     }
-    public function checkUser($pseudo,$password)
+    public function checkUser($pseudo, $password)
     {
         $req = $passwordFromDatabase = $this->connexion->connect()->prepare('SELECT password FROM `users` WHERE pseudo = :pseudo ');
         $req->bindValue(':pseudo', $pseudo);
-        if($req->execute()){
+        if ($req->execute()) {
             $passwordFromDatabase = $req->fetchColumn();
-            return password_verify($password,$passwordFromDatabase);
+            return password_verify($password, $passwordFromDatabase);
         }
     }
     //Connexion
     public function findUser($pseudo)
     {
-
-
         $req = $this->connexion->connect()->prepare('SELECT * FROM users  WHERE pseudo = :pseudo ');
         $req->execute(array(':pseudo' => $pseudo));
         $donnees = $req->fetch();

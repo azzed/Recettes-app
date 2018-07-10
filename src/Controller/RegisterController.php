@@ -22,7 +22,6 @@ class RegisterController extends AbstractController
 
     public function subscriber($name, $mail, $password)
     {
-
         if (isset($name) && isset($password) && !empty($name) && !empty($password) && !empty($mail) && !empty($mail)) {
             if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $mail)) {
                 if (!$this->manager->userAlreadyExist($mail)) {
@@ -32,11 +31,14 @@ class RegisterController extends AbstractController
                         $_SESSION['user'] = $this->manager->findUserByMail($mail)->getId();
                         return $this->redirect('?dashboard');
                     }
+                } else {
+                    $existAccount ="le compte existe dejà";
+                    $this->render('inscription.html.twig', array("existAccount" => $existAccount));
                 }
-                $this->redirect("?register");
-                $existAccount ="le compte existe dejà";
-                $this->render('inscription.html.twig', array("existAccount" => $existAccount));
-
+                //$this->redirect("?register");
+            } else {
+                $erreur = "Le format d'email est incorrect";
+                $this->render('inscription.html.twig', array("erreur" => $erreur));
             }
         }
     }
@@ -44,5 +46,4 @@ class RegisterController extends AbstractController
     {
         $this->render('inscription.html.twig');
     }
-
 }

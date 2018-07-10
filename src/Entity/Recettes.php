@@ -29,7 +29,7 @@ class Recettes
     public function __construct($data)
     {
         $this->hydrate($data);
-        if(isset($data['userId'])){
+        if (isset($data['userId'])) {
             $this->user = $data['userId'];
         }
     }

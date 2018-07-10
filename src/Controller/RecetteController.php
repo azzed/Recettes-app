@@ -39,8 +39,10 @@ class RecetteController extends AbstractController
         if (isset($nom) && !empty($nom) && isset($ingredients) && !empty($ingredients) && isset($liens) && !empty($liens) && isset($description) && !empty($description)) {
             $this->manager->addRecipe($nom, $ingredients, $liens, $description, $user_id);
             $this->redirect('?dashboard');
+        } else {
+            $message ="un champ non entré";
+            $this->render('recette-notAdd.html.twig', array("message" => $message));
         }
-        $this->redirect('?dashboard');
     }
     //suppression de recette
     public function removeRecipe($ids)
@@ -54,16 +56,16 @@ class RecetteController extends AbstractController
             }
         }
     }
-    //modification d'article
+    //modification de recette
     public function updateRecipe($id)
     {
         if (isset($_SESSION['user'])) {
             $recette = $this->manager->findOne($id);
             $user = $this->adminManager->findUserById($_SESSION['user']);
-            $message ="La recette a été modifié";
+
             if ($this->voters->isOwner($user, $recette)) {
                 $recette =$this->manager->findOne($id);
-                $this->render('update_recipe.html.twig', array('recette' =>$recette,'message'=>$message));
+                $this->render('update_recipe.html.twig', array('recette' =>$recette));
             }
         }
     }
@@ -73,6 +75,16 @@ class RecetteController extends AbstractController
         if (isset($nom) && !empty($nom) && isset($ingredients) && !empty($ingredients) && isset($liens) && !empty($liens) && isset($description) && !empty($description)) {
             $recette = $this->manager->updateRecipe($nom, $ingredients, $liens, $description, $id);
             $this->redirect('?dashboard');
+        } else {
+            if (isset($_SESSION['user'])) {
+                $recette = $this->manager->findOne($id);
+                $user = $this->adminManager->findUserById($_SESSION['user']);
+                if ($this->voters->isOwner($user, $recette)) {
+                    $recette =$this->manager->findOne($id);
+                    $message="un champs n'est pas valide";
+                    $this->render('update_recipe.html.twig', array('recette' =>$recette,'message'=>$message));
+                }
+            }
         }
     }
 }

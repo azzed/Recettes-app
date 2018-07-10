@@ -17,6 +17,8 @@
  `composer install`
 
  Rename the `config.php.dist` file by `config.php`
+ 
+ Delete the term `Recipe-app` in the url of the `URL.php` file 
         
 For the database:
    
