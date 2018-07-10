@@ -81,7 +81,7 @@ class RecetteController extends AbstractController
                 $user = $this->adminManager->findUserById($_SESSION['user']);
                 if ($this->voters->isOwner($user, $recette)) {
                     $recette =$this->manager->findOne($id);
-                    $message="un champs n'est pas valide";
+                    $message="Vous avez oublié d'entré un champ";
                     $this->render('update_recipe.html.twig', array('recette' =>$recette,'message'=>$message));
                 }
             }
