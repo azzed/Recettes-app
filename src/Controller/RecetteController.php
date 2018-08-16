@@ -37,8 +37,14 @@ class RecetteController extends AbstractController
     public function recipAdd($nom, $ingredients, $liens, $description, $user_id)
     {
         if (isset($nom) && !empty($nom) && isset($ingredients) && !empty($ingredients) && isset($liens) && !empty($liens) && isset($description) && !empty($description)) {
-            $this->manager->addRecipe($nom, $ingredients, $liens, $description, $user_id);
-            $this->redirect('?dashboard');
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $liens)){
+                $this->manager->addRecipe($nom, $ingredients, $liens, $description, $user_id);
+                $this->redirect('?dashboard');
+            }
+            else{
+                $message ="l'url invalide";
+                $this->render('dashboard.html.twig',["message"=>$message]);
+            }
         } else {
             $message ="un champ non entré";
             $this->render('recette-notAdd.html.twig', array("message" => $message));

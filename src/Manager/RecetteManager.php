@@ -18,8 +18,14 @@ class RecetteManager
 
     public function findAll()
     {
+        $sql = "SELECT COUNT(id) AS nbrRecette FROM recipe";
+        $data = $this->connexion->connect()->query($sql);
+        $nbr = $data->fetch();
+        $nbRec = $nbr['nbrRecette'];
+        $perPage = 4;
+        $cPage = 1;
         $recettes = [];
-        $req = $this->connexion->connect()->prepare('SELECT * FROM recipe ');
+        $req = $this->connexion->connect()->prepare('SELECT * FROM recipe  LIMIT '.(($cPage-1)*$perPage).','.$perPage);
         $req->execute();
         $datas = $req->fetchAll();
         foreach ($datas as $data) {

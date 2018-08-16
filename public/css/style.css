@@ -1,7 +1,7 @@
 body{
     background-color: #a5d6a7;
 }
-ul{
+.navbar-nav{
     list-style: none;
 }
 #card{
@@ -36,4 +36,7 @@ ul{
 
 .inscrit{
     display: none;
+}
+i .fa .fa-trash .text-danger {
+    margin-left: 30px;
 }

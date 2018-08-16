@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,6 @@
     <!-- Your custom styles (optional) -->
     <link href="{{ public_dir }}css/style.css" rel="stylesheet">
     <link href="{{ public_dir }}css/style.min.css" rel="stylesheet">
-
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
 </head>
@@ -95,17 +94,23 @@
                     </div>
                     <div class="form-group">
                         <label for="">Ingredients :</label>
-                        <textarea class="form-control" name="ingredients" id="" cols="30" rows="10"></textarea>
+                        <textarea  id="ingredient" class="form-control" name="ingredients" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Liens de la recette :</label>
-                        <input class="form-control" id="exampleTextarea" name="liens" placeholder="liens youtube"/>
-
+                        <input class="form-control"  name="liens" placeholder="liens youtube"/>
+                        <div class="col-md-3" id="messageError">
+                            <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            {{ message }}
+                        </span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleTextarea">Description</label>
-                        <textarea class="form-control" id="exampleTextarea" name="description" rows="3"></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                     </div>
 
                     <input name="user_id" type=hidden value="{{ user.getId }}"/>
@@ -119,9 +124,9 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">nom de la recette</th>
-                            <th scope="col">Action</th>
-
+                            <th scope="col">Nom de la recette</th>
+                            <th scope="col">Modifié</th>
+                            <th scope="col">Supprimé</th>
                         </tr>
                         </thead>
 
@@ -129,37 +134,26 @@
                             {% for recette in recettes %}
                             <tr>
                                 <td>{{ recette.getNom }}</td>
+                                <td class="action">
+                                    <a href="{{ recette.linkUpdate }}" ><i class="fa fa-pencil fa-2x text-primary"></i></a>
+                                </td>
                                 <td>
-                                    <a href="{{ recette.linkUpdate }}" class="btn btn-sm btn-primary">Modifier</a>
+                                    <a href="{{ recette.linkDelete }}" ><i class="fa fa-trash fa-2x text-danger "></i></a>
                                 </td>
                             </tr>
                             <br>
                             {% endfor %}
-                            <tr>
-                                <h4>Suppression de recette :</h4>
-                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg">Supprimer</button>
-                                <div class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="myLargeModalLabel">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            {% for recette in recettes %}
-                                            <p><strong>etes vous sur de vouloir supprimer cette recette : {{ recette.getNom }}</strong></p>
-                                            <a href="{{ recette.linkDelete }}" class="btn btn-sm btn-danger ">Supprimer</a>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </tr>
                             </tbody>
 
                     </table>
                     <br>
-
+            </td>
                 <div class="alert alert-success" id="message" role="alert" style="display: none">
                     <a href="#" class="alert-link">une recette a été modifier</a>.
                 </div>
 
-            </div>
-            <div class="tab-pane fade show" id="user" role="tabpanel">
+        </div>
+        <div class="tab-pane fade show" id="user" role="tabpanel">
 
                 <table class="table table-hover">
                     <thead>
@@ -190,7 +184,6 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
-
                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target=".bs-user-modal-lg">Supprimer</button>
                 <div class="modal fade bs-user-modal-lg" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
@@ -206,9 +199,6 @@
                     </div>
 
                 </div>
-
-
-
 
             </div>
         </div>
@@ -232,8 +222,11 @@
     // Animations initialization
     new WOW().init();
 </script>
-
-
+<script src="//cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'ingredient' );
+    CKEDITOR.replace( 'description' );
+</script>
 <script src="{{ public_dir }}script/script.js"></script>
 </body>
 

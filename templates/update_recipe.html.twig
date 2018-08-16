@@ -91,7 +91,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Ingredients :</label>
-                        <textarea class="form-control" name="ingredients" id="" cols="30" rows="10">{{ recette.getIngredients }}</textarea>
+                        <textarea class="form-control" name="ingredients" id="ingredient" cols="30" rows="10">{{ recette.getIngredients }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Liens de la recette :</label>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea">Description</label>
-                        <textarea class="form-control" id="exampleTextarea" name="description" rows="3">{{ recette.getDescription }}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3">{{ recette.getDescription }}</textarea>
                     </div>
                     <input name="id" type=hidden value="{{ recette.getId }}"/>
                     <button type="submit" class="btn btn-primary" id="modifier">Modifier</button>
@@ -133,7 +133,11 @@
     // Animations initialization
     new WOW().init();
 </script>
-
+<script src="//cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'description' );
+    CKEDITOR.replace( 'ingredient' );
+</script>
 
 <script src="{{ public_dir }}script/script.js"></script>
 </body>

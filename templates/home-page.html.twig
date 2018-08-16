@@ -9,7 +9,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.1/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
@@ -48,9 +48,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#recette" class="nav-link waves-effect">Recette</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link waves-effect" href="?register"><i class="fa fa-user-plus"></i>Inscription</a>
                 </li>
 
@@ -58,6 +55,8 @@
                     <a class="nav-link waves-effect" href="?dashboard"><i class="fa fa-user" aria-hidden="true"></i>Administration</a>
                 </li>
             </ul>
+            <input class="form-control mr-sm-2" type="search" placeholder="Chercher une recette" aria-label="Search">
+            <input class="btn btn-outline-success" value="Recherche" name="recherche" id="recherche" type="submit"/>
 
         </div>
     </div>
@@ -108,14 +107,15 @@
                         <!--Card-->
 
                             <div class="card ">
-                                <div class="embed-responsive embed-responsive-16by9">
+                                <div class="embed-responsive embed-responsive-16by9 card-header">
                                     <iframe class="embed-responsive-item" src="{{ recette.videoLink() }}" allowfullscreen></iframe>
                                 </div>
                                 <div class="card-body">
-
                                     <h5 class="card-title">{{ recette.getNom }}</h5>
-                                    <p class="card-text">{{ recette.getDescription }}</p>
-                                    <a href="{{ recette.link }}" class="btn btn-primary">Voir plus</a>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="{{ recette.link }}" class="btn btn-sm btn-primary" id="voir-plus">Voir plus</a>
+
                                 </div>
                             </div>
                         <!--/.Card-->
@@ -194,6 +194,8 @@
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 
     <script src="{{ public_dir }}script/script.js"></script>
+    <script src="{{ public_dir }}script/search.js"></script>
+
 </body>
 
 </html>
